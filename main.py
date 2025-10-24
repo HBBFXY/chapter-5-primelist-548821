@@ -1,20 +1,20 @@
 def PrimeList(N):
-    # 辅助函数：判断一个数是否为质数
-    def is_prime(num):
-        if num &lt; 2:
-            return False
-        if num == 2:
-            return True
-        if num % 2 == 0:
-            return False
-        # 检查从3到sqrt(num)的所有奇数
-        for i in range(3, int(num**0.5) + 1, 2):
+    # 处理特殊情况，小于2的数没有质数
+    if N <= 2:
+        return ""
+    # 存储质数的列表
+    primes = []
+    # 遍历2到N-1的所有整数
+    for num in range(2, N):
+        # 假设当前数是质数
+        is_prime = True
+        # 检查是否能被2到其平方根之间的数整除
+        for i in range(2, int(num**0.5) + 1):
             if num % i == 0:
-                return False
-        return True
-
-    # 生成小于N的所有质数列表
-    primes = [str(num) for num in range(2, N) if is_prime(num)]
-
-    # 用空格连接并输出
-    return ' '.join(primes)
+                is_prime = False
+                break
+        # 如果是质数，加入列表
+        if is_prime:
+            primes.append(str(num))
+    # 以空格分隔输出，末尾无空格
+    return " ".join(primes)
