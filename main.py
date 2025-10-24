@@ -12,5 +12,4 @@ def PrimeList(N):
             primes.append(str(num))
     return " ".join(primes)
 
-# 测试示例
-# print(PrimeList(10))  # 输出：2 3 5 7
+
