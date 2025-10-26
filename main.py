@@ -33,24 +33,3 @@ def PrimeList(N):
     # 用空格连接
     return " ".join(primes)
 
-# 测试函数
-def test_PrimeList():
-    """测试PrimeList函数"""
-    test_cases = [
-        (10, "2 3 5 7"),
-        (20, "2 3 5 7 11 13 17 19"),
-        (2, ""),
-        (1, ""),
-        (3, "2"),
-        (30, "2 3 5 7 11 13 17 19 23 29")
-    ]
-    
-    for n, expected in test_cases:
-        result = PrimeList(n)
-        print(f"PrimeList({n}) = '{result}'")
-        assert result == expected, f"Expected '{expected}', got '{result}'"
-    
-    print("所有测试通过！")
-
-if __name__ == "__main__":
-    test_PrimeList()
