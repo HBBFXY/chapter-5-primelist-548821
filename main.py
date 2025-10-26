@@ -1,15 +1,32 @@
 def PrimeList(N):
     if N <= 2:
         return ""
+    
+    # 创建标记数组，初始都认为是质数
+    is_prime = [True] * N
+    is_prime[0] = is_prime[1] = False  # 0和1不是质数
+    
+    # 埃拉托斯特尼筛法
+    for i in range(2, int(N**0.5) + 1):
+        if is_prime[i]:
+            # 将i的倍数标记为非质数
+            for j in range(i*i, N, i):
+                is_prime[j] = False
+    
+    # 收集所有质数
     primes = []
-    for num in range(2, N):
-        is_prime = True
-        for i in range(2, int(num ** 0.5) + 1):
-            if num % i == 0:
-                is_prime = False
-                break
-        if is_prime:
-            primes.append(str(num))
+    for i in range(2, N):
+        if is_prime[i]:
+            primes.append(str(i))
+    
+    # 用空格连接，自动处理了空格分隔
     return " ".join(primes)
 
+# 测试样例
+if __name__ == "__main__":
+    # 测试几个例子
+    print(PrimeList(10))  # 输出: 2 3 5 7
+    print(PrimeList(20))  # 输出: 2 3 5 7 11 13 17 19
+    print(PrimeList(2))   # 输出: (空字符串)
+    print(PrimeList(1))   # 输出: (空字符串)
 
