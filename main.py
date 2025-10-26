@@ -21,12 +21,3 @@ def PrimeList(N):
     
     # 用空格连接，自动处理了空格分隔
     return " ".join(primes)
-
-# 测试样例
-if __name__ == "__main__":
-    # 测试几个例子
-    print(PrimeList(10))  # 输出: 2 3 5 7
-    print(PrimeList(20))  # 输出: 2 3 5 7 11 13 17 19
-    print(PrimeList(2))   # 输出: (空字符串)
-    print(PrimeList(1))   # 输出: (空字符串)
-
